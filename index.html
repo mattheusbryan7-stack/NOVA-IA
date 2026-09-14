@@ -6,16 +6,15 @@
     <title>Nóva IA — Enterprise Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Estilos de Empresa Bilionária --- */
+        /* --- Estilos com o Verde da Marca --- */
         :root {
-            /* CORES DE EXEMPLO (Substitua pelas suas) */
-            --primary-color: #0a1930;    /* Azul Marinho Profundo (Fundo do Card) */
-            --accent-color: #d4af37;     /* Dourado Sofisticado (Botão/Detalhes) */
-            --bg-gradient: linear-gradient(135deg, #0f2b56 0%, #051020 100%); /* Fundo da Tela */
+            --primary-color: #0b1f15;    /* Verde Escuro Profundo (Fundo do Card) */
+            --accent-color: #00e676;     /* Verde Vibrante Sofisticado (Botão/Detalhes) */
+            --bg-gradient: linear-gradient(135deg, #07170f 0%, #020805 100%); /* Fundo da Tela */
             --text-main: #ffffff;        /* Branco Principal */
-            --text-muted: #a0aab5;       /* Cinza para subtítulos */
-            --input-bg: #152e55;         /* Azul levemente mais claro para input */
-            --border-color: #2c5282;     /* Borda do input */
+            --text-muted: #a0b5a8;       /* Cinza esverdeado para subtítulos */
+            --input-bg: #122b1f;         /* Verde escuro levemente mais claro para input */
+            --border-color: #1b4d32;     /* Borda do input */
         }
 
         body {
@@ -36,7 +35,7 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(0,230,118,0.1) 0%, rgba(255,255,255,0) 70%);
             border-radius: 50%;
             top: 10%;
             left: 15%;
@@ -55,13 +54,12 @@
             background-color: var(--primary-color);
             padding: 50px;
             border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border: 1px solid rgba(0,230,118,0.1);
             text-align: center;
             backdrop-filter: blur(10px);
         }
 
-        /* Logo/Nome da Empresa */
         .brand-header {
             margin-bottom: 40px;
         }
@@ -97,7 +95,6 @@
             line-height: 1.5;
         }
 
-        /* Inputs Estilizados */
         .input-group {
             text-align: left;
             margin-bottom: 20px;
@@ -128,13 +125,12 @@
         input[type="password"]:focus {
             outline: none;
             border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+            box-shadow: 0 0 0 3px rgba(0,230,118,0.2);
         }
 
-        /* Botão Poderoso */
         .btn-login {
             background-color: var(--accent-color);
-            color: #000; /* Texto preto para contraste no botão dourado */
+            color: #051009; /* Texto escuro para contraste perfeito no botão verde */
             border: none;
             padding: 18px;
             width: 100%;
@@ -149,14 +145,13 @@
         }
 
         .btn-login:hover {
-            background-color: #b89830; /* Dourado mais escuro no hover */
+            background-color: #00c853; /* Verde um pouco mais escuro no hover */
         }
 
         .btn-login:active {
-            transform: scale(0.98); /* Efeito de clique */
+            transform: scale(0.98);
         }
 
-        /* Rodapé Corporativo */
         .footer-corporate {
             margin-top: 40px;
             font-size: 12px;
@@ -202,7 +197,7 @@
             <button class="btn-login" onclick="alert('Conectando ao motor de IA...')">Entrar no Sistema</button>
 
             <div class="footer-corporate">
-                &copy; 2024 Nóva IA Global Tech. Todos os direitos reservados.<br>
+                &copy; 2026 Nóva IA Global Tech. Todos os direitos reservados.<br>
                 Ambiente seguro e monitorado.
                 <div class="footer-links" style="margin-top: 10px;">
                     <a href="#">Suporte</a> | <a href="#">Termos de Uso</a>
