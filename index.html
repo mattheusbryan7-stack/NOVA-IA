@@ -6,20 +6,21 @@
     <title>Nóva IA — Enterprise Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- Estilos com o Verde da Marca --- */
         :root {
-            --primary-color: #0b1f15;    /* Verde Escuro Profundo (Fundo do Card) */
-            --accent-color: #00e676;     /* Verde Vibrante Sofisticado (Botão/Detalhes) */
-            --bg-gradient: linear-gradient(135deg, #07170f 0%, #020805 100%); /* Fundo da Tela */
-            --text-main: #ffffff;        /* Branco Principal */
-            --text-muted: #a0b5a8;       /* Cinza esverdeado para subtítulos */
-            --input-bg: #122b1f;         /* Verde escuro levemente mais claro para input */
-            --border-color: #1b4d32;     /* Borda do input */
+            --bg-deep: #050d08;
+            --card-bg: #091a10;
+            --accent-green: #00ff66;
+            --accent-hover: #00cc52;
+            --text-main: #ffffff;
+            --text-muted: #8fa898;
+            --input-bg: #0d2617;
+            --border-color: #143d24;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-gradient);
+            background-color: var(--bg-deep);
+            background-image: radial-gradient(circle at 50% 20%, #0d2617 0%, var(--bg-deep) 70%);
             margin: 0;
             padding: 0;
             display: flex;
@@ -29,123 +30,102 @@
             overflow: hidden;
         }
 
-        /* Efeito de luz de fundo sutil */
-        body::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(0,230,118,0.1) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            top: 10%;
-            left: 15%;
-            z-index: 1;
-        }
-
         .login-container {
-            position: relative;
-            z-index: 2;
             width: 100%;
-            max-width: 450px;
+            max-width: 440px;
             padding: 20px;
         }
 
         .login-card {
-            background-color: var(--primary-color);
-            padding: 50px;
+            background-color: var(--card-bg);
+            padding: 45px;
             border-radius: 16px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-            border: 1px solid rgba(0,230,118,0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--border-color);
             text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .brand-header {
-            margin-bottom: 40px;
         }
 
         .brand-logo {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
-            color: var(--accent-color);
-            letter-spacing: -1px;
+            color: var(--accent-green);
+            letter-spacing: -0.5px;
             display: block;
+            margin-bottom: 5px;
         }
 
         .brand-subtitle {
-            font-size: 14px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin-top: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: 600;
+            margin-bottom: 35px;
+            display: block;
         }
 
         h2 {
             color: var(--text-main);
-            margin-bottom: 10px;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
+            margin-bottom: 8px;
         }
 
         p {
             color: var(--text-muted);
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 30px;
-            line-height: 1.5;
         }
 
         .input-group {
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
             color: var(--text-main);
-            font-size: 13px;
-            margin-bottom: 8px;
+            font-size: 12px;
+            margin-bottom: 6px;
             font-weight: 500;
         }
 
-        input[type="email"],
-        input[type="password"] {
+        input {
             width: 100%;
-            padding: 16px;
+            padding: 14px 16px;
             background-color: var(--input-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
             color: var(--text-main);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        input[type="email"]:focus,
-        input[type="password"]:focus {
+        input:focus {
             outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(0,230,118,0.2);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.15);
         }
 
         .btn-login {
-            background-color: var(--accent-color);
-            color: #051009; /* Texto escuro para contraste perfeito no botão verde */
+            background-color: var(--accent-green);
+            color: #000000;
             border: none;
-            padding: 18px;
+            padding: 16px;
             width: 100%;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: background-color 0.2s ease, transform 0.1s ease;
             margin-top: 10px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .btn-login:hover {
-            background-color: #00c853; /* Verde um pouco mais escuro no hover */
+            background-color: var(--accent-hover);
         }
 
         .btn-login:active {
@@ -153,55 +133,39 @@
         }
 
         .footer-corporate {
-            margin-top: 40px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.4);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 35px;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid var(--border-color);
             padding-top: 20px;
+            line-height: 1.5;
         }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
     </style>
 </head>
 <body>
     <div class="login-container">
         <div class="login-card">
-            <div class="brand-header">
-                <span class="brand-logo">NÓVA IA</span>
-                <span class="brand-subtitle">PLATAFORMA ENTERPRISE</span>
-            </div>
+            <span class="brand-logo">NÓVA IA</span>
+            <span class="brand-subtitle">Enterprise Gateway</span>
             
-            <h2>Autenticação Corporativa</h2>
-            <p>Acesse o painel de controle do seu atendente inteligente.</p>
+            <h2>Acesse sua conta</h2>
+            <p>Gerencie seu atendente automatizado</p>
 
             <div class="input-group">
-                <label for="email">E-mail Corporativo</label>
-                <input type="email" id="email" placeholder="voce@suaempresa.com.br" required>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
             </div>
             
             <div class="input-group">
-                <label for="password">Chave de Acesso (Senha)</label>
+                <label for="password">Senha</label>
                 <input type="password" id="password" placeholder="••••••••" required>
             </div>
 
-            <button class="btn-login" onclick="alert('Conectando ao motor de IA...')">Entrar no Sistema</button>
+            <button class="btn-login" onclick="alert('Conectando...')">Entrar</button>
 
             <div class="footer-corporate">
-                &copy; 2026 Nóva IA Global Tech. Todos os direitos reservados.<br>
-                Ambiente seguro e monitorado.
-                <div class="footer-links" style="margin-top: 10px;">
-                    <a href="#">Suporte</a> | <a href="#">Termos de Uso</a>
-                </div>
+                &copy; 2026 Nóva IA. Todos os direitos reservados.<br>
+                Conexão segura via Supabase.
             </div>
         </div>
     </div>
