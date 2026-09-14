@@ -3,26 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nóva IA — Painel do Cliente</title>
+    <title>Nóva IA — Enterprise Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; }
-        h2 { color: #111; margin-bottom: 10px; }
-        p { color: #666; font-size: 14px; margin-bottom: 25px; }
-        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
-        button { background-color: #000; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
-        button:hover { background-color: #333; }
-        .footer { margin-top: 20px; font-size: 12px; color: #999; }
+        /* --- Estilos de Empresa Bilionária --- */
+        :root {
+            /* CORES DE EXEMPLO (Substitua pelas suas) */
+            --primary-color: #0a1930;    /* Azul Marinho Profundo (Fundo do Card) */
+            --accent-color: #d4af37;     /* Dourado Sofisticado (Botão/Detalhes) */
+            --bg-gradient: linear-gradient(135deg, #0f2b56 0%, #051020 100%); /* Fundo da Tela */
+            --text-main: #ffffff;        /* Branco Principal */
+            --text-muted: #a0aab5;       /* Cinza para subtítulos */
+            --input-bg: #152e55;         /* Azul levemente mais claro para input */
+            --border-color: #2c5282;     /* Borda do input */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Efeito de luz de fundo sutil */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            top: 10%;
+            left: 15%;
+            z-index: 1;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background-color: var(--primary-color);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Logo/Nome da Empresa */
+        .brand-header {
+            margin-bottom: 40px;
+        }
+
+        .brand-logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-color);
+            letter-spacing: -1px;
+            display: block;
+        }
+
+        .brand-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: var(--text-main);
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Inputs Estilizados */
+        .input-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: var(--text-main);
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 16px;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: var(--text-main);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+        }
+
+        /* Botão Poderoso */
+        .btn-login {
+            background-color: var(--accent-color);
+            color: #000; /* Texto preto para contraste no botão dourado */
+            border: none;
+            padding: 18px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-login:hover {
+            background-color: #b89830; /* Dourado mais escuro no hover */
+        }
+
+        .btn-login:active {
+            transform: scale(0.98); /* Efeito de clique */
+        }
+
+        /* Rodapé Corporativo */
+        .footer-corporate {
+            margin-top: 40px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>Nóva IA</h2>
-        <p>Acesse o painel do seu atendente inteligente</p>
-        <input type="email" id="email" placeholder="Seu e-mail cadastrado">
-        <input type="password" id="senha" placeholder="Sua senha de acesso">
-        <button onclick="alert('Sistema conectado! Pronto para integrar com o Supabase.')">Entrar no Painel</button>
-        <div class="footer">Ambiente Seguro — Nóva IA B2B</div>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="brand-header">
+                <span class="brand-logo">NÓVA IA</span>
+                <span class="brand-subtitle">PLATAFORMA ENTERPRISE</span>
+            </div>
+            
+            <h2>Autenticação Corporativa</h2>
+            <p>Acesse o painel de controle do seu atendente inteligente.</p>
+
+            <div class="input-group">
+                <label for="email">E-mail Corporativo</label>
+                <input type="email" id="email" placeholder="voce@suaempresa.com.br" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Chave de Acesso (Senha)</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <button class="btn-login" onclick="alert('Conectando ao motor de IA...')">Entrar no Sistema</button>
+
+            <div class="footer-corporate">
+                &copy; 2024 Nóva IA Global Tech. Todos os direitos reservados.<br>
+                Ambiente seguro e monitorado.
+                <div class="footer-links" style="margin-top: 10px;">
+                    <a href="#">Suporte</a> | <a href="#">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
