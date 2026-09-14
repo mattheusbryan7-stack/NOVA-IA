@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nóva IA — Enterprise Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Importando a biblioteca oficial do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         :root {
             --bg-deep: #050d08;
@@ -15,6 +17,7 @@
             --text-muted: #8fa898;
             --input-bg: #0d2617;
             --border-color: #143d24;
+            --error-color: #ff5252;
         }
 
         body {
@@ -132,6 +135,13 @@
             transform: scale(0.98);
         }
 
+        #mensagem-erro {
+            color: var(--error-color);
+            font-size: 13px;
+            margin-top: 15px;
+            display: none;
+        }
+
         .footer-corporate {
             margin-top: 35px;
             font-size: 11px;
@@ -161,7 +171,8 @@
                 <input type="password" id="password" placeholder="••••••••" required>
             </div>
 
-            <button class="btn-login" onclick="alert('Conectando...')">Entrar</button>
+            <button class="btn-login" id="btnEntrar" onclick="fazerLogin()">Entrar</button>
+            <div id="mensagem-erro"></div>
 
             <div class="footer-corporate">
                 &copy; 2026 Nóva IA. Todos os direitos reservados.<br>
@@ -169,5 +180,46 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // --- CONFIGURAÇÃO DO SUPABASE ---
+        const SUPABASE_URL = 'https://lmykmobrqrvqfmrvehok.supabase.co';
+        const SUPABASE_ANON_KEY = 'SUA_CHAVE_PUBLISHABLE_COPIADA_AQUI'; 
+        
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        async function fazerLogin() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('password').value;
+            const erroDiv = document.getElementById('mensagem-erro');
+            const btn = document.getElementById('btnEntrar');
+
+            if (!email || !senha) {
+                erroDiv.style.display = 'block';
+                erroDiv.innerText = 'Preencha o e-mail e a senha.';
+                return;
+            }
+
+            btn.innerText = 'Autenticando...';
+            btn.disabled = true;
+            erroDiv.style.display = 'none';
+
+            // Autenticação com Supabase
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: senha,
+            });
+
+            if (error) {
+                erroDiv.style.display = 'block';
+                erroDiv.innerText = 'Acesso negado: e-mail ou senha incorretos.';
+                btn.innerText = 'Entrar';
+                btn.disabled = false;
+            } else {
+                alert('Login efetuado com sucesso! Bem-vindo à Nóva IA.');
+                btn.innerText = 'Conectado!';
+            }
+        }
+    </script>
 </body>
 </html>
